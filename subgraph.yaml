@@ -12,7 +12,7 @@ dataSources:
     source:
       address: '0x245E8C4862FE3f2E7602C564cAaf5BAAD9C89eA4'
       abi: Factory
-      startBlock: 7351665
+      startBlock: 7314265
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -41,7 +41,7 @@ dataSources:
     source:
       address: '0x78D2D691A9fFB206d458D8229Af1ddCFc6B2b68a'
       abi: NonfungiblePositionManager
-      startBlock: 7351665
+      startBlock: 7314265
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -64,7 +64,7 @@ dataSources:
           handler: handleIncreaseLiquidity
         - event: DecreaseLiquidity(indexed uint256,uint128,uint256,uint256)
           handler: handleDecreaseLiquidity
-        - event: Collect(indexed address,address,indexed int24,indexed int24,uint128,uint128)
+        - event: Collect(indexed uint256,address,uint256,uint256)
           handler: handleCollect
         - event: Transfer(indexed address,indexed address,indexed uint256)
           handler: handleTransfer
