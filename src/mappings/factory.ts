@@ -6,21 +6,18 @@ import { PoolCreated } from '../types/Factory/Factory'
 import { Pool, Token, Bundle } from '../types/schema'
 import { Pool as PoolTemplate } from '../types/templates'
 import { fetchTokenSymbol, fetchTokenName, fetchTokenTotalSupply, fetchTokenDecimals } from '../utils/token'
-
-import { log, BigInt, Address, json } from '@graphprotocol/graph-ts'
-
+import { log, BigInt, Address } from '@graphprotocol/graph-ts'
 
 export function handlePoolCreated(event: PoolCreated): void {
-  // temp fix
+  
 
-  log.debug('handlePoolCreated', [event.params.pool.toHexString()])
-
-  if (event.params.pool == Address.fromHexString('0x8fe8d9bb8eeba3ed688069c3d6b556c9ca258248')) {
-    return
-  }
+  log.debug('mybug the pool created event was called', [])
 
   // load factory
   let factory = Factory.load(FACTORY_ADDRESS)
+  log.debug('mybug the factory address is {}', [FACTORY_ADDRESS])
+
+  // create factory if null
   if (factory === null) {
     factory = new Factory(FACTORY_ADDRESS)
     factory.poolCount = ZERO_BI
